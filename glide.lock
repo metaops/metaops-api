@@ -1,0 +1,36 @@
+hash: 9cd2b757817c4234432ee20271f28b8096da5501ef7456e2696b509f442f8122
+updated: 2017-05-27T16:44:32.121384425-05:00
+imports:
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: bcd8bc72b08df0f70df986b97f95590779502d31
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/jinzhu/gorm
+  version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
+  subpackages:
+  - dialects/postgres
+- name: github.com/jinzhu/inflection
+  version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/joho/godotenv
+  version: 726cc8b906e3d31c70a9671c90a13716a8d3f50d
+- name: github.com/lib/pq
+  version: 2704adc878c21e1329f46f6e56a1c387d788ff94
+  subpackages:
+  - hstore
+  - oid
+- name: github.com/simon0191/slack-visitor
+  version: e9a90fa3646ce43d36a59ab6aa8f5f1b2028c855
+  subpackages:
+  - cmd/migrations
+  - model
+  - shared
+  - utils
+- name: github.com/spf13/cobra
+  version: ca57f0f5dba473a8a58765d16d7e811fb8027add
+- name: github.com/spf13/pflag
+  version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
+- name: gopkg.in/gormigrate.v1
+  version: fd470587e2319d8db9fd35cfba9424f6d45175f8
+testImports: []

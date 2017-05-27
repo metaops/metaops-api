@@ -1,0 +1,11 @@
+package: github.com/metaops/metaops-api
+import:
+- package: github.com/gorilla/mux
+  version: ^1.4.0
+- package: github.com/spf13/cobra
+- package: gopkg.in/gormigrate.v1
+  version: ^1.1.4
+- package: github.com/jinzhu/gorm
+  version: ^1.0.0
+- package: github.com/joho/godotenv
+  version: ^1.1.0
