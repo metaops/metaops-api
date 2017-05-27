@@ -1,22 +1,49 @@
 package server
 
 import (
-	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/metaops/metaops-api/app"
+	"github.com/metaops/metaops-api/config"
 	"net/http"
 )
 
-func Init() {
-	port := 9000
+type Server struct {
+	app    *app.App
+	config *config.ServerConfig
+}
 
+func New(a *app.App, serverConfig *config.ServerConfig) *Server {
+
+	return &Server{
+		app:    a,
+		config: serverConfig,
+	}
+}
+
+func (s *Server) Init() {
 	router := mux.NewRouter()
-	router.HandleFunc("/", createAppHandler).Methods("POST")
+	router.HandleFunc("/apps", s.createAppHandler).Methods("POST")
 
-	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), router); err != nil {
+	if err := http.ListenAndServe(":"+s.config.Port, router); err != nil {
 		panic(err)
 	}
 }
 
-func createAppHandler(w http.ResponseWriter, r *http.Request) {
+type createAppRequest struct {
+	Name string `json:"name"`
+}
 
+func (s *Server) createAppHandler(w http.ResponseWriter, r *http.Request) {
+	var payload createAppRequest
+	if ok := s.readJSON(r, &payload); !ok {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	userApp, err := s.app.CreateApp(payload.Name)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	s.writeJSON(w, userApp)
 }

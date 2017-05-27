@@ -10,8 +10,13 @@ type DBConfig struct {
 	Driver     string
 }
 
+type ServerConfig struct {
+	Port string
+}
+
 type Config struct {
-	DBConfig DBConfig
+	DBConfig     DBConfig
+	ServerConfig ServerConfig
 }
 
 func Load() Config {
@@ -20,6 +25,9 @@ func Load() Config {
 		DBConfig: DBConfig{
 			Connection: os.Getenv("DB_URL"),
 			Driver:     os.Getenv("DB_DRIVER"),
+		},
+		ServerConfig: ServerConfig{
+			Port: os.Getenv("PORT"),
 		},
 	}
 }

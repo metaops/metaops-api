@@ -52,9 +52,9 @@ func dbRollbackCmdFunc(cmd *cobra.Command, args []string) {
 
 func initMigrations(cmd *cobra.Command) *gormigrate.Gormigrate {
 
-	config := config.Load()
+	dbConfig := config.Load().DBConfig
 
-	db, err := gorm.Open(config.DBConfig.Driver, config.DBConfig.Connection)
+	db, err := gorm.Open(dbConfig.Driver, dbConfig.Connection)
 	if err != nil {
 		log.Fatal(err)
 	}
