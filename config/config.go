@@ -28,8 +28,8 @@ func Load() Config {
 
 	return Config{
 		DBConfig: DBConfig{
-			Connection: os.Getenv("DB_URL"),
-			Driver:     os.Getenv("DB_DRIVER"),
+			Connection: os.Getenv("DATABASE_URL"),
+			Driver:     os.Getenv("DATABASE_DRIVER"),
 		},
 		ServerConfig: ServerConfig{
 			Port: os.Getenv("PORT"),
