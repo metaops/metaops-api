@@ -14,5 +14,7 @@ add-apt-repository \
 apt-get update
 apt-get install -y git docker-ce
 
-wget https://cl.ly/2R1k360u1Y3p/metaops-node
+usermod -a -G docker ubuntu
+
+wget https://cl.ly/1o3N3x0z0a38/metaops-node
 chmod +x metaops-node
