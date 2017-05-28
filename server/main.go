@@ -22,6 +22,7 @@ func New(a *app.App, serverConfig *config.ServerConfig) *Server {
 
 func (s *Server) Init() {
 	router := mux.NewRouter()
+	router.HandleFunc("/ping", s.pingHandler).Methods("GET")
 	router.HandleFunc("/apps", s.createAppHandler).Methods("POST")
 	router.HandleFunc("/apps/{appId}/nodes", s.createNodeHandler).Methods("POST")
 	router.HandleFunc("/apps/{appId}/deployments", s.createDeploymentHandler).Methods("POST")
@@ -34,6 +35,10 @@ func (s *Server) Init() {
 
 type createAppRequest struct {
 	Name string `json:"name"`
+}
+
+func (s *Server) pingHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("PONG"))
 }
 
 func (s *Server) createAppHandler(w http.ResponseWriter, r *http.Request) {
