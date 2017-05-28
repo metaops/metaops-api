@@ -1,6 +1,10 @@
-hash: 9cd2b757817c4234432ee20271f28b8096da5501ef7456e2696b509f442f8122
-updated: 2017-05-27T16:44:32.121384425-05:00
+hash: 49874c9c401f082da4a2ee1f0e89043a28e0b63236248713eb3b6cc2773c793c
+updated: 2017-05-28T04:31:13.377408452-05:00
 imports:
+- name: github.com/garyburd/redigo
+  version: 433969511232c397de61b1442f9fd49ec06ae9ba
+  subpackages:
+  - redis
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/mux
@@ -15,18 +19,13 @@ imports:
   version: 1c35d901db3da928c72a72d8458480cc9ade058f
 - name: github.com/joho/godotenv
   version: 726cc8b906e3d31c70a9671c90a13716a8d3f50d
+  subpackages:
+  - autoload
 - name: github.com/lib/pq
   version: 2704adc878c21e1329f46f6e56a1c387d788ff94
   subpackages:
   - hstore
   - oid
-- name: github.com/simon0191/slack-visitor
-  version: e9a90fa3646ce43d36a59ab6aa8f5f1b2028c855
-  subpackages:
-  - cmd/migrations
-  - model
-  - shared
-  - utils
 - name: github.com/spf13/cobra
   version: ca57f0f5dba473a8a58765d16d7e811fb8027add
 - name: github.com/spf13/pflag

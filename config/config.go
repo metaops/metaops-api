@@ -14,9 +14,14 @@ type ServerConfig struct {
 	Port string
 }
 
+type RedisConfig struct {
+	URL string
+}
+
 type Config struct {
 	DBConfig     DBConfig
 	ServerConfig ServerConfig
+	RedisConfig  RedisConfig
 }
 
 func Load() Config {
@@ -28,6 +33,9 @@ func Load() Config {
 		},
 		ServerConfig: ServerConfig{
 			Port: os.Getenv("PORT"),
+		},
+		RedisConfig: RedisConfig{
+			URL: os.Getenv("REDIS_URL"),
 		},
 	}
 }
